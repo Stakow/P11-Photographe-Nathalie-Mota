@@ -11,3 +11,159 @@ Updated: 2024-08-13 15:06:00
 
 */
 
+@font-face {
+    font-family: 'Space-mono';
+    src: url(fonts/Space_Mono/SpaceMono-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Space-mono';
+    src: url(fonts/Space_Mono/SpaceMono-BoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Space-mono';
+    src: url(fonts/Space_Mono/SpaceMono-Italic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Space-mono';
+    src: url(fonts/Space_Mono/SpaceMono-Regular.ttf) format('truetype');
+}
+
+
+
+/* header */
+
+
+#site-header {
+    position: relative;
+    background-color: #ffffff;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Ajoutez du padding pour éviter que le contenu ne touche les bords */
+}
+
+#site-logo {
+    position: relative;
+    left: 5%;
+}
+ img {
+    width: 216px;
+    height: 14px;
+}
+
+#site-navigation {
+    display: flex;
+    width: 30%;
+    align-items: center;
+}
+
+.main-menu {
+    position: relative;
+    right: 5%;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li {
+    margin-left: 45px; /* Espacement entre les éléments de menu */
+}
+
+.main-menu a {
+    font-family: 'Space Mono', sans-serif;
+    font-weight: 400; /* Assurer que le poids de la police est 400 (régulier) */
+    text-decoration: none;
+    color: #000; /* Couleur du texte des liens */
+    font-size: 16px; /* Taille du texte des liens */
+    line-height: 24px;
+}
+
+.main-menu a:hover {
+    text-decoration: underline; /* Style de survol des liens */
+}
+
+/* footer */
+
+#site-footer {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    margin: 0 43px;
+}
+
+.footer-menu a {
+    font-family: 'Space Mono', sans-serif;
+    font-weight: 400; /* Assurer que le poids de la police est 400 (régulier) */
+    text-decoration: none;
+    color: #000; /* Couleur du texte des liens */
+    font-size: 16px; /* Taille du texte des liens */
+    line-height: 24px;
+}
+
+.footer-menu a:hover {
+    text-decoration: underline; /* Style de survol des liens */
+}
+
+/* modal contact/ 
+
+/* style.css */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
