@@ -9,12 +9,9 @@
             </nav>
     </div>
     <!-- footer.php -->
-    <?php get_template_part ('template-parts/modal-contact');?>
+    <?php get_template_part ('template-parts/contact');?>
 
 </footer>
-    
-    
-    
     
     <?php wp_footer() ?>
 </body>

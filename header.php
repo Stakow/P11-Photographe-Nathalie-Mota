@@ -9,7 +9,7 @@
 <body>
     <header id="site-header">
         <div id="site-logo">
-        <img src="<?php echo get_template_directory_uri() . '/images/logo.png'; ?>" alt="logo Nathalie Mota" class="site-logo">
+        <img src="<?php echo get_stylesheet_directory_uri() . '/images/logo.png'; ?>" alt="logo Nathalie Mota" class="site-logo">
         </div>
         <nav id="site-navigation">
             <?php
