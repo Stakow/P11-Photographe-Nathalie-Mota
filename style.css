@@ -31,7 +31,29 @@ Updated: 2024-08-13 15:06:00
     src: url(fonts/Space_Mono/SpaceMono-Regular.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url(fonts/Poppins/Poppins-Black.ttf) format('truetype');
+}
 
+@font-face {
+    font-family: 'Poppins';
+    src: url(fonts/Poppins/Poppins-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+}
+
+/* body */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0;
+}
 
 /* header */
 
@@ -44,7 +66,7 @@ Updated: 2024-08-13 15:06:00
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Ajoutez du padding pour éviter que le contenu ne touche les bords */
+    padding: 0 20px; 
 }
 
 #site-logo {
@@ -72,20 +94,20 @@ Updated: 2024-08-13 15:06:00
 }
 
 .main-menu li {
-    margin-left: 45px; /* Espacement entre les éléments de menu */
+    margin-left: 45px; 
 }
 
 .main-menu a {
     font-family: 'Space Mono', sans-serif;
-    font-weight: 400; /* Assurer que le poids de la police est 400 (régulier) */
+    font-weight: 400; 
     text-decoration: none;
-    color: #000; /* Couleur du texte des liens */
-    font-size: 16px; /* Taille du texte des liens */
+    color: #000; 
+    font-size: 16px; 
     line-height: 24px;
 }
 
 .main-menu a:hover {
-    text-decoration: underline; /* Style de survol des liens */
+    text-decoration: underline;
 }
 
 /* footer */
@@ -118,15 +140,15 @@ Updated: 2024-08-13 15:06:00
 
 .footer-menu a {
     font-family: 'Space Mono', sans-serif;
-    font-weight: 400; /* Assurer que le poids de la police est 400 (régulier) */
+    font-weight: 400; 
     text-decoration: none;
-    color: #000; /* Couleur du texte des liens */
-    font-size: 16px; /* Taille du texte des liens */
+    color: #000; 
+    font-size: 16px; 
     line-height: 24px;
 }
 
 .footer-menu a:hover {
-    text-decoration: underline; /* Style de survol des liens */
+    text-decoration: underline; 
 }
 
 /* modal contact */
@@ -147,12 +169,11 @@ Updated: 2024-08-13 15:06:00
 .modal-content {
     background-color: #fff; 
     margin: 10% auto; 
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 0px;
+    border: 4px solid #000;
     width: 60%; 
-    max-width: 600px; 
+    max-width: 700px; 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
-    border-radius: 8px; 
 }
 
 /* Bouton de fermeture de la modale */
@@ -166,8 +187,73 @@ Updated: 2024-08-13 15:06:00
 
 .close:hover,
 .close:focus {
-    color: #000; /* Changer la couleur au survol ou au focus */
+    color: #000; 
     text-decoration: none;
 }
 
+/* Formulaire contact */
+
+.form-container {
+    height: 600px;
+    width: 263px;
+    margin-top: 50px;
+}
+
+.contact-logo {
+    width: 100%;
+    height: 106px;
+    position: relative;
+}
+
+.wpcf7-form {
+    max-width: 263px;
+    margin: auto;
+}
+
+.first-label, .second-label {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.first-label label, .second-label label {
+    display: flex;
+    color: #313144;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 5px;
+}
+
+.first-label input, .second-label textarea {
+    width: 100%;
+    border: 1px solid #B8BBC2;
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.second-label textarea {
+    height: 210px;
+}
+
+.wpcf7-submit {
+    margin-top: 10px;
+    width: 263px;
+    height: 50px;
+    background-color: #D8D8D8;
+    border: none;
+    cursor: pointer;
+    
+}
+
+div.form-container .wpcf7-submit {
+    font-family: 'Space Mono', sans-serif;
+    font-size: 12px;
+}
+
+.form-container br {
+    display: none;
+}
 
