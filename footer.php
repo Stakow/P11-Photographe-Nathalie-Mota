@@ -1,5 +1,6 @@
 <footer id="site-footer"> 
     <div class="footer-content">
+        <hr class="custom-line">
             <nav class="footer-navigation">
                 <ul class="footer-menu">
                     <li><a href="<?php echo esc_url(home_url('/mentions-legales')); ?>">MENTIONS LÉGALES</a></li>
