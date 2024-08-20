@@ -1,3 +1,4 @@
+</main>
 <footer id="site-footer"> 
     <div class="footer-content">
         <hr class="custom-line">
