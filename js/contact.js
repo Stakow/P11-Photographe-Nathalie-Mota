@@ -1,13 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     const contactLink = document.querySelector('a[href="#"]'); // Lien dans le menu
-    const contactButton = document.querySelector('a.contact-button'); // Bouton contact sur la page single.php
+    const contactButton = document.querySelector('a.contact-button'); 
     const modal = document.querySelector('#contact-modal');
     const closeModal = document.querySelector('#close-modal');
 
+    
+    
     // Fonction pour ouvrir la modale
     function openModal(e) {
         e.preventDefault();
-        modal.style.display = 'block';
+        const photoReferenceElement = document.querySelector('#photo-reference');
+        const photoReference = photoReferenceElement ? photoReferenceElement.getAttribute('data-reference') : '';
+
+        if (modal) {
+            modal.style.display = 'block';
+            // Préremplir le champ RÉF. PHOTO
+            const photoRefField = document.querySelector('#photo-ref'); 
+            if (photoRefField) {
+                photoRefField.value = photoReference;
+            }
+        }
     }
 
     // Ouvrir la modale via le lien du menu

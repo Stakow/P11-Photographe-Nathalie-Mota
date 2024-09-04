@@ -59,7 +59,10 @@ add_filter('nav_menu_link_attributes', 'customize_menu_attributes', 10, 3);
 // intégré js
 function enqueue_custom_scripts() {
     wp_enqueue_script('custom-scripts', get_stylesheet_directory_uri() . '/js/contact.js', array('jquery'), null, true);
-    wp_enqueue_script('custom-scripts', get_stylesheet_directory_uri() . '/js/photo-single.js', array('jquery'), null, true);
+    wp_enqueue_script('photo-scripts', get_stylesheet_directory_uri() . '/js/photo-single.js', array('jquery'), null, true);
+    wp_enqueue_script('filter-scripts', get_stylesheet_directory_uri() . '/js/filter.js', array('jquery'), null, true);
+    wp_enqueue_script('load-more-scripts', get_stylesheet_directory_uri() . '/js/load-more.js', array('jquery'), null, true);
+    
 
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');

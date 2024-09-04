@@ -6,14 +6,54 @@
      <div class="event-image">
         <img src="<?php echo get_stylesheet_directory_uri() . '/images/PHOTOGRAPHE EVENT.png'; ?>" alt="Photographe event image">
     </div>
-</section>   
+</section>  
+<div class="homepage-filter"> 
+<div id="filter-category" class="filter-dropdown">
+            <button class="dropdown-btn">CATÉGORIES</button>
+            <ul class="dropdown-list">
+            <li data-value="">CATÉGORIES</li>
+                <?php
+                $categories = get_terms('categories_photos');
+                foreach ($categories as $category) {
+                    echo '<li data-value="' . esc_attr($category->slug) . '">' . esc_html($category->name) . '</li>';
+                }
+                ?>
+            </ul>
+        </div>
+    
+<div id="filter-category" class="filter-dropdown">
+            <button class="dropdown-btn">FORMATS</button>
+            <ul class="dropdown-list">
+            <li data-value="">FORMATS</li>
+                <?php
+                $categories = get_terms('format');
+                foreach ($categories as $category) {
+                    echo '<li data-value="' . esc_attr($category->slug) . '">' . esc_html($category->name) . '</li>';
+                }
+                ?>
+            </ul>
+</div>
+
+<div id="filter-category" class="filter-dropdown">
+            <button class="dropdown-btn">TRIER PAR</button>
+            <ul class="dropdown-list">
+            <li data-value="">TRIER PAR</li>
+                <?php
+                $categories = get_terms('categorie');
+                foreach ($categories as $category) {
+                    echo '<li data-value="' . esc_attr($category->slug) . '">' . esc_html($category->name) . '</li>';
+                }
+                ?>
+            </ul>
+</div>
+</div>
 
 <div class="homepage-photos">
     <?php
     // Custom Query pour récupérer les derniers posts de type 'photo'
     $args = array(
-        'post_type' => 'photo', // Assurez-vous que 'photo' est bien votre post type
-        'posts_per_page' => 8, // Nombre de photos à afficher
+        'post_type' => 'photo', //  post type
+        'posts_per_page' => 8, 
     );
 
     $photo_query = new WP_Query($args);
@@ -36,6 +76,7 @@
 
     <?php wp_reset_postdata(); ?>
 </div>
+<button id="load-more" class="load-more">Charger plus</button>
 </main>
 <?php get_footer(); ?>
 
