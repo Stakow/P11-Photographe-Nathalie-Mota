@@ -69,8 +69,10 @@
     </div>
 
     <div class="interaction-block">
+        <div class="interaction-second-block-1">
         <div class="interaction-block-1"><p class="interaction-text">Cette photo vous intéresse ?</p></div>
         <div class="interaction-block-2"><a href="#contact-modal" class="contact-button">Contact</a></div>
+        </div>
         <div class="interaction-block-3">
         <?php
             // Récupérer l'article précédent et suivant en fonction de la date
@@ -78,6 +80,12 @@
             $next_post = get_next_post();
             ?>
 
+            <!-- Section pour afficher la miniature -->
+            <div class="thumbnail-miniature">
+                <img src="" alt="Miniature" id="thumbnail-image">
+            </div>
+
+            <div class="arrow-position">
             <?php if (!empty($prev_post)) : ?>
                 <!-- Bouton pour l'article précédent avec l'URL de l'article -->
                 <button class="nav-button prev-button" 
@@ -88,10 +96,6 @@
                 </button>
             <?php endif; ?>
 
-            <!-- Section pour afficher la miniature -->
-            <div class="thumbnail-miniature">
-                <img src="" alt="Miniature" id="thumbnail-image">
-            </div>
 
             <?php if (!empty($next_post)) : ?>
                 <!-- Bouton pour l'article suivant avec l'URL de l'article -->
@@ -101,13 +105,17 @@
                         aria-label="Article suivant">
                     &#9654;
                 </button>
+
             <?php endif; ?>
+            </div>
         </div>
     </div>
 
      
-    <div class="similar-photos" style="height: 600px;">
-        <h2>Vous aimerez aussi</h2>
+    <div class="similar-photos">
+        <div class="title-photos">
+            <h2>VOUS AIMEREZ AUSSI</h2>
+        </div>
         <div class="photo-grid">
             <?php
             // Récupérer les catégories de l'article actuel
