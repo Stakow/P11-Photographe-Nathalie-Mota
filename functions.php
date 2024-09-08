@@ -61,9 +61,69 @@ function enqueue_custom_scripts() {
     wp_enqueue_script('custom-scripts', get_stylesheet_directory_uri() . '/js/contact.js', array('jquery'), null, true);
     wp_enqueue_script('photo-scripts', get_stylesheet_directory_uri() . '/js/photo-single.js', array('jquery'), null, true);
     wp_enqueue_script('filter-scripts', get_stylesheet_directory_uri() . '/js/filter.js', array('jquery'), null, true);
-    wp_enqueue_script('load-more-scripts', get_stylesheet_directory_uri() . '/js/load-more.js', array('jquery'), null, true);
+    
     
 
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+
+function fetch_photos() {
+    $category = isset($_GET['category']) ? sanitize_text_field($_GET['category']) : '';
+    $format = isset($_GET['format']) ? sanitize_text_field($_GET['format']) : '';
+    $sort = isset($_GET['sort']) ? sanitize_text_field($_GET['sort']) : 'recent';
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+    $order = $sort === 'oldest' ? 'ASC' : 'DESC';
+
+    $args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 8,
+        'paged' => $page,
+        'orderby' => 'date',
+        'order' => $order,
+        'tax_query' => array(
+            'relation' => 'AND',
+        ),
+    );
+
+    if (!empty($category)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'categories_photos',
+            'field' => 'slug',
+            'terms' => $category,
+        );
+    }
+
+    if (!empty($format)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'format',
+            'field' => 'slug',
+            'terms' => $format,
+        );
+    }
+
+    $photo_query = new WP_Query($args);
+
+    if ($photo_query->have_posts()) :
+        while ($photo_query->have_posts()) : $photo_query->the_post(); ?>
+            <div class="photo-item">
+                <a href="<?php the_permalink(); ?>">
+                    <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('full'); ?>
+                    <?php endif; ?>
+                </a>
+            </div>
+        <?php endwhile;
+    else :
+        echo '<p>Aucune photo trouvée.</p>';
+    endif;
+
+    wp_reset_postdata();
+    wp_die(); // Stop AJAX execution
+}
+add_action('wp_ajax_fetch_photos', 'fetch_photos');
+add_action('wp_ajax_nopriv_fetch_photos', 'fetch_photos');
+
+
 

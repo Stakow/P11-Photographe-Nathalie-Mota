@@ -1,19 +1,18 @@
 <?php get_header(); ?>
-
 <main id="primary" class="site-main">
 <section class="banner">
-     <img src="<?php echo get_stylesheet_directory_uri() . '/images/nathalie-10.jpeg'; ?>" alt="header image" class="hero-header">
-     <div class="event-image">
+    <img src="<?php echo get_stylesheet_directory_uri() . '/images/nathalie-10.jpeg'; ?>" alt="header image" class="hero-header">
+    <div class="event-image">
         <img src="<?php echo get_stylesheet_directory_uri() . '/images/PHOTOGRAPHE EVENT.png'; ?>" alt="Photographe event image">
     </div>
 </section>  
 
-<div class="homepage-filter"> 
+<div class="homepage-filter">
     <!-- Catégories -->
     <div id="filter-category" class="filter-dropdown">
         <button class="dropdown-btn">CATÉGORIES</button>
         <ul class="dropdown-list">
-            <li data-value="">CATÉGORIES</li>
+            <li data-value="">Toutes les catégories</li>
             <?php
             $categories = get_terms('categories_photos');
             foreach ($categories as $category) {
@@ -22,12 +21,12 @@
             ?>
         </ul>
     </div>
-    
+
     <!-- Formats -->
     <div id="filter-format" class="filter-dropdown">
         <button class="dropdown-btn">FORMATS</button>
         <ul class="dropdown-list">
-            <li data-value="">FORMATS</li>
+            <li data-value="">Tous les formats</li>
             <?php
             $formats = get_terms('format');
             foreach ($formats as $format) {
@@ -41,7 +40,6 @@
     <div id="filter-sort" class="filter-dropdown">
         <button class="dropdown-btn">TRIER PAR</button>
         <ul class="dropdown-list">
-            <li data-value="">TRIER PAR</li>
             <li data-value="recent">Plus récente</li>
             <li data-value="oldest">Plus ancienne</li>
         </ul>
@@ -50,6 +48,7 @@
 
 <div class="homepage-photos">
     <?php
+    // Custom Query pour récupérer les derniers posts de type 'photo'
     // Récupérer les paramètres de tri, catégorie et format de l'URL
     $sort = isset($_GET['sort']) ? $_GET['sort'] : '';
     $category = isset($_GET['category']) ? $_GET['category'] : '';
@@ -63,6 +62,7 @@
 
     // Arguments pour WP_Query
     $args = array(
+        'post_type' => 'photo', //  post type
         'post_type' => 'photo', // post type
         'posts_per_page' => 8, 
         'orderby' => 'date',
@@ -85,7 +85,6 @@
     );
 
     $photo_query = new WP_Query($args);
-
     if ($photo_query->have_posts()) : ?>
         <div class="photo-grid">
             <?php while ($photo_query->have_posts()) : $photo_query->the_post(); ?>
