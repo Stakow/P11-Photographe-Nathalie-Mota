@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM complètement chargé et analysé');
 
     // Variables globales
     let filters = {
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         filters.category = category || '';
         filters.format = format || '';
 
-        console.log('Filters updated:', filters);
 
         page = 1;
         fetchPhotos();
@@ -27,17 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fonction pour récupérer les photos via AJAX
     function fetchPhotos() {
-        console.log('Fetching photos with filters:', filters);
+        
 
         const url = `${window.location.origin}/wp-admin/admin-ajax.php?action=fetch_photos&category=${filters.category}&format=${filters.format}&sort=${filters.sort}&page=${page}`;
-        console.log('Fetch URL:', url);
+        
 
         fetch(url)
             .then(response => response.text())
             .then(data => {
                 setTimeout(() => { // Ajout d'un délai pour tester
                     const photoGrid = document.querySelector('.photo-grid');
-                    console.log('photoGrid:', photoGrid);
+                   
 
                     if (photoGrid) {
                         if (page === 1) {

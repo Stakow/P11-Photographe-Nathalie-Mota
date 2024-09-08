@@ -8,6 +8,7 @@
 </section>  
 
 <div class="homepage-filter">
+    <div class="homepage-filter-2">
     <!-- Catégories -->
     <div id="filter-category" class="filter-dropdown">
         <button class="dropdown-btn">CATÉGORIES</button>
@@ -35,6 +36,7 @@
             ?>
         </ul>
     </div>
+        </div>
 
     <!-- Trier par -->
     <div id="filter-sort" class="filter-dropdown">
@@ -103,8 +105,9 @@
 
     <?php wp_reset_postdata(); ?>
 </div>
-
-<button id="load-more" class="load-more">Charger plus</button>
+<div class="homepage-button">
+    <button id="load-more" class="load-more">Charger plus</button>
+</div>
 </main>
 
 <?php get_footer(); ?>
