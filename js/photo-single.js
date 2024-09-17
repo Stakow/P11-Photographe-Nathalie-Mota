@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const thumbnailUrl = button.getAttribute('data-thumbnail');
         if (thumbnailUrl) {
             thumbnailImage.src = thumbnailUrl;
-            thumbnailImage.style.display = 'block';  // Afficher l'image
+            thumbnailImage.style.display = 'block';  
         }
     }
 
     // Réinitialiser la miniature quand le survol cesse
     function resetThumbnail() {
         thumbnailImage.src = '';
-        thumbnailImage.style.display = 'none';  // Masquer l'image
+        thumbnailImage.style.display = 'none';  
     }
 
     // Gestionnaire d'événement pour le survol des boutons

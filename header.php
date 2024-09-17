@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
@@ -21,7 +22,7 @@
             <?php
             wp_nav_menu( array(
                 'theme_location' => 'main-menu',
-                'menu_class'     => 'menu-items', // Classe CSS pour les éléments du menu
+                'menu_class'     => 'menu-items', 
             ) );
             ?>
         </nav>

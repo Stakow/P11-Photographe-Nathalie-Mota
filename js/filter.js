@@ -25,31 +25,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fonction pour récupérer les photos via AJAX
     function fetchPhotos() {
-        
-
         const url = `${window.location.origin}/wp-admin/admin-ajax.php?action=fetch_photos&category=${filters.category}&format=${filters.format}&sort=${filters.sort}&page=${page}`;
-        
-
+    
         fetch(url)
             .then(response => response.text())
             .then(data => {
-                setTimeout(() => { // Ajout d'un délai pour tester
+                setTimeout(() => {
                     const photoGrid = document.querySelector('.photo-grid');
-                   
-
+    
                     if (photoGrid) {
                         if (page === 1) {
                             photoGrid.innerHTML = data;
                         } else {
                             photoGrid.insertAdjacentHTML('beforeend', data);
                         }
+                        // Réattacher les événements de la lightbox
+                        initLightbox();
                     } else {
                         console.error('L\'élément photo-grid est introuvable.');
                     }
-                },);
+                }, 0);
             })
             .catch(error => console.error('Erreur lors de la récupération des photos:', error));
     }
+    
 
     // Initialiser les événements des filtres
     document.querySelectorAll('.filter-dropdown').forEach(dropdown => {

@@ -93,7 +93,6 @@ body {
 /* Menu burger button */
 .menu-toggle {
   display: none;
-  position: fixed;
   top: 65px;
   right: 20px;
   z-index: 1000;
@@ -308,11 +307,12 @@ div.form-container .wpcf7-submit {
   display: flex;
   text-align: center;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: background-color 0.3 ease;
+  position: relative;
 }
 
 .photo-item:hover {
-  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .photo-item img {
@@ -321,6 +321,12 @@ div.form-container .wpcf7-submit {
   width: 564px;
   height: 495px;
   object-fit: cover;
+  transition: opacity 0.3 ease;
+  display: block;
+}
+
+.photo-item:hover img {
+  opacity: 0.7;
 }
 
 .photo-item a {
@@ -469,6 +475,168 @@ div.form-container .wpcf7-submit {
 .event-image img {
   width: 100%;
   height: auto;
+}
+
+/* Styles pour la Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Lightbox close */
+.lightbox-close {
+  width: 100%;
+  height: 30px;
+}
+
+.lightbox-close i {
+  cursor: pointer;
+  position: fixed;
+  top: 3em;
+  right: 4em;
+  transform: scale(2);
+  opacity: 0.8;
+  color: #fff;
+}
+
+.lightbox-close i:hover {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+/* Lightbox content */
+.lightbox-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Lightbox navigation */
+.lightbox-nav {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.lightbox-photo-container {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 100vh;
+}
+
+.lightbox-photo img {
+  max-width: 100%;
+  max-height: 79vh;
+  object-fit: contain;
+}
+
+.lightbox-info {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #fff;
+}
+
+.reference-photo {
+  text-align: left;
+  text-transform: uppercase;
+  font-family: "Space Mono", sans-serif;
+  font-weight: 500;
+}
+
+.categorie-photo {
+  text-align: right;
+  text-transform: uppercase;
+  font-family: "Space Mono", sans-serif;
+  font-weight: 500;
+}
+
+.open-lightbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+  z-index: 100000;
+  cursor: pointer;
+  fill: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .open-lightbox,
+.photo-item:hover .icon-center {
+  display: block;
+  opacity: 1;
+}
+
+.icon-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: white;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* bloc title/categorie photo */
+.photo-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-family: "Space Mono", sans-serif;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover .photo-info {
+  transform: translateY(0);
+}
+
+.photo-title {
+  text-align: left;
+  font-size: 14px;
+}
+
+.photo-category {
+  text-align: right;
+  font-size: 14px;
 }
 
 /* single.php */
@@ -760,7 +928,7 @@ div.form-container .wpcf7-submit {
   #site-navigation.open {
     transform: translateX(0);
     opacity: 1;
-    background-color: #FFD6D6;
+    background-color: #E00000;
     z-index: 999;
   }
   /* Ajout d'une transition pour la fermeture */
@@ -770,12 +938,13 @@ div.form-container .wpcf7-submit {
   }
   #site-navigation.open .menu-items a {
     color: #fff;
-    font-family: "Space Mono";
-    font-size: 28px;
-    font-weight: 600;
+    font-family: "Space Mono", sans-serif;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 65px;
   }
   #site-navigation.open .menu-items a:hover {
-    color: #E00000;
+    color: #FFD6D6;
     text-decoration: none;
   }
   .menu-items {
@@ -793,6 +962,9 @@ div.form-container .wpcf7-submit {
     overflow: hidden;
   }
   /*homepage*/
+  .photo-item {
+    width: 88%;
+  }
   .homepage-filter {
     flex-direction: column;
     align-items: flex-start;
@@ -859,6 +1031,21 @@ div.form-container .wpcf7-submit {
   .title-photos {
     display: flex;
     justify-content: center;
+  }
+  /* lightbox */
+  .lightbox-nav {
+    width: 50%;
+    height: 0%;
+    top: 90px;
+    bottom: 0;
+    position: absolute;
+    padding-bottom: 2px;
+  }
+  .lightbox-prev {
+    left: 0;
+  }
+  .lightbox-next {
+    right: 0;
   }
 }
 
