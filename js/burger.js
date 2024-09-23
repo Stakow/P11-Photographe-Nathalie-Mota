@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Si le menu est ouvert, ajoute la classe 'closing' pour l'animation de fermeture
                 siteNavigation.classList.add('closing');
                 
-                // Attendre la fin de l'animation avant de retirer la classe 'open'
+                // "réinitialiser l'animation"
                 setTimeout(function() {
                     siteNavigation.classList.remove('open');
                     siteNavigation.classList.remove('closing'); 
@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Ouvre le menu
                 siteNavigation.classList.add('open');
             }
+            menuToggle.classList.toggle('active');
             
             // Met à jour l'attribut 'aria-expanded'
             menuToggle.setAttribute('aria-expanded', !isOpen);

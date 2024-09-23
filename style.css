@@ -185,7 +185,7 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 1001;
   left: 0;
   top: 0;
   width: 100%;
@@ -196,6 +196,8 @@ body {
 
 /* Contenu de la modale */
 .modal-content {
+  position: relative;
+  bottom: 5%;
   background-color: #fff;
   margin: 10% auto;
   padding: 0px;
@@ -583,7 +585,7 @@ div.form-container .wpcf7-submit {
   top: 10px;
   right: 10px;
   display: block;
-  z-index: 100000;
+  z-index: 1010;
   cursor: pointer;
   fill: white;
   opacity: 0;

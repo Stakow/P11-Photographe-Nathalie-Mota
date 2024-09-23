@@ -6,7 +6,7 @@
             <ul class="footer-menu">
                 <li><a href="<?php echo esc_url(home_url('/mentions-legales')); ?>">MENTIONS LÉGALES</a></li>
                 <li><a href="<?php echo esc_url(get_privacy_policy_url()); ?>">VIE PRIVÉE</a></li>
-                <li><a href="#">TOUT DROITS RÉSERVÉS</a></li>
+                <li><a href="">TOUT DROITS RÉSERVÉS</a></li>
             </ul>
         </nav>
     </div>

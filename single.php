@@ -11,7 +11,7 @@
                 <?php if (get_field('reference')) : ?> 
                     <p><strong>Référence :</strong> <?php the_field('reference'); ?></p> 
                     <?php
-                        // Ajoutez cet élément pour stocker la référence de la photo
+                        // Stocker la référence de la photo
                         $photo_reference = get_field('reference');
                         ?>
                         <div id="photo-reference" data-reference="<?php echo esc_attr($photo_reference); ?>" style="display: none;"></div>
