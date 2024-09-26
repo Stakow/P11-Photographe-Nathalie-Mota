@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 </head>
@@ -13,7 +12,7 @@
         <div id="site-logo">
             <img src="<?php echo get_stylesheet_directory_uri() . '/images/logo.png'; ?>" alt="logo Nathalie Mota" class="site-logo">
         </div>
-        <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false">
+        <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>

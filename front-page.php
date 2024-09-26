@@ -10,6 +10,7 @@
     <img src="<?php echo esc_url($image[0]); ?>" alt="header image" class="hero-header" loading="lazy">
     <div class="event-image">
         <img src="<?php echo get_stylesheet_directory_uri() . '/images/PHOTOGRAPHE EVENT.png'; ?>" alt="Photographe event image">
+        <h1 class="sr-only">Photographe événement</h1>
     </div>
 </section>  
 

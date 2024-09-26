@@ -472,11 +472,36 @@ div.form-container .wpcf7-submit {
   align-items: center;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+  height: 200px;
 }
 
 .event-image img {
   width: 100%;
   height: auto;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /* Styles pour la Lightbox */
